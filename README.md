@@ -1,3 +1,8 @@
+/*
+bundle exec rake build
+//key-register//
+bundle exec rake release
+*/
 #create gem
 bundle gem app
 bundle config
