@@ -1,0 +1,52 @@
+https://github.com/ruby-grape/grape
+
+gem 'grape-jbuilder'
+
+version 'v1', using: :path
+
+params do
+  requires :id, type: Integer, desc: 'ID'
+  optional :name, type: String, default: 'hoge'
+  optional :name, type: String, default: 'hoge', values: ['xx', 'uu']
+  optional :name, String, regexp: /^[a-z]+$/
+end
+
+class XXXAPI < Grape::API
+  content_type :xml, 'application/xml'
+  content_type :json, 'application/json'
+  default_format :json
+end
+
+class XXXAPI < Grape::API
+  content_type :xls, "application/vnd.ms-excel"
+  formatter :xls, lambda { |object, env| object.to_xls }
+end
+
+class XXX::API < Grape::API
+  mount XXX::APIv1
+  mount XXX::APIbv2
+end
+
+class XXX:API < Grape::API
+  get '/piyo' do
+    error! "no" 404
+  end
+end
+
+//api_user_spec.rb
+it "res 201" do
+  post '/api/v1/users', { xx: yy}, { 'HTTP_X_XXX' => 'xxx'}
+  expect(response.status).to eq 201
+end
+it "res json" do
+  pattern = {
+    user: {
+      user: {
+       xxx_id: /\A[0-9]{9}\z/
+      }
+    }
+  }
+  post '/api/v1/users', { xxx: yyy },{ 'HTTP_X_XXX' => 'xxx'}
+  expect(response.body).to be_json_as(pattern)
+end
+
