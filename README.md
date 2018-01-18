@@ -1,3 +1,5 @@
+https://rubygems.org/
+---
 /*
 bundle exec rake build
 //key-register//
