@@ -42,6 +42,7 @@ curl -u takagotch https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials;
 cd app
 bundle exec rake release
 ```
+---
 
 ```
 sudo gem install bundler
