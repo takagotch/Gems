@@ -50,5 +50,10 @@ bundle -v
 which bundle
 ```
 
+#### ~/.gemrc
+```
+intall: --no-ti --no-rdoc
+update: --no-ti --no-rdoc
+```
 
 
